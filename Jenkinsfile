@@ -1,9 +1,5 @@
 pipeline {
-  agent { 
-    any { 
-      image 'mcr.microsoft.com/playwright:v1.42.1-focal'
-    } 
-  }
+  
   stages {
     stage('install playwright') {
       steps {
