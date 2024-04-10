@@ -1,16 +1,9 @@
-const { test, expect } = require('@playwright/test');
+const { expect } = require('@playwright/test');
 import { PageManager } from '../../pages/PageManager';
-let pageManager
+import { test } from '../BaseTest'
 
 test.describe('Sauce Labs referal links test', function() {
-    test.beforeEach(async ({ page }) => {
-        pageManager = new PageManager(page);
-    });
-    test('linkedin referal', async ({ page }) => {
-        await pageManager.loginPage.open()
-        await pageManager.loginPage.LoginBox.Login.fill('standard_user')
-        await pageManager.loginPage.LoginBox.Password.fill('secret_sauce')
-        await pageManager.loginPage.LoginBox.LoginButton.click()
+    test('linkedin referal', async ({ page, pageManager }) => {
         await pageManager.mainPage.PrimaryButtons.LinkedInRefButton.click()
         const [newPage] = await Promise.all([
             page.waitForEvent('popup')
@@ -22,11 +15,7 @@ test.describe('Sauce Labs referal links test', function() {
 
     //WHY?????????????????????????????
 
-    test('twitter referal', async ({ page }) => {
-        await pageManager.loginPage.open()
-        await pageManager.loginPage.LoginBox.Login.fill('standard_user')
-        await pageManager.loginPage.LoginBox.Password.fill('secret_sauce')
-        await pageManager.loginPage.LoginBox.LoginButton.click()
+    test('twitter referal', async ({ page, pageManager }) => {
         await pageManager.mainPage.PrimaryButtons.TwitterRefButton.click()
         const [newPage] = await Promise.all([
             page.waitForEvent('popup')
@@ -34,11 +23,7 @@ test.describe('Sauce Labs referal links test', function() {
         await expect(await newPage.title()).toContain('X');
     })
 
-    test('facebook referal', async ({ page }) => {
-        await pageManager.loginPage.open()
-        await pageManager.loginPage.LoginBox.Login.fill('standard_user')
-        await pageManager.loginPage.LoginBox.Password.fill('secret_sauce')
-        await pageManager.loginPage.LoginBox.LoginButton.click()
+    test('facebook referal', async ({ page, pageManager }) => {
         await pageManager.mainPage.PrimaryButtons.FacebookRefButton.click()
         const [newPage] = await Promise.all([
             page.waitForEvent('popup')
