@@ -13,7 +13,7 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
-                    bat 'npm run testCase'
+                    bat 'npm run testCase -- --project="Headless Tests"'
                 }
             }
         }
