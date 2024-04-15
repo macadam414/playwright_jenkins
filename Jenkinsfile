@@ -5,7 +5,6 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    // Установка зависимостей
                     sh 'npm install'
                 }
             }
@@ -14,7 +13,6 @@ pipeline {
         stage('Run tests') {
             steps {
                 script {
-                    // Запуск тестов
                     sh 'npm run testCase'
                 }
             }
