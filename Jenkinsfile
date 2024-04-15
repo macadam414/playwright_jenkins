@@ -10,6 +10,14 @@ pipeline {
             }
         }
 
+        stage('Update playwright libraries') {
+            steps {
+                script {
+                    bat 'npx playwright install'
+                }
+            }
+        }
+
         stage('Run tests') {
             steps {
                 script {
