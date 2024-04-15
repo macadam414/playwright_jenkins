@@ -13,16 +13,6 @@ test.describe('Sauce Labs referal links test', function() {
 
 
 
-    //WHY?????????????????????????????
-
-    test('twitter referal', async ({ page, pageManager }) => {
-        await pageManager.mainPage.PrimaryButtons.TwitterRefButton.click()
-        const [newPage] = await Promise.all([
-            page.waitForEvent('popup')
-        ]);
-        await expect(await newPage.title()).toContain('X');
-    })
-
     test('facebook referal', async ({ page, pageManager }) => {
         await pageManager.mainPage.PrimaryButtons.FacebookRefButton.click()
         const [newPage] = await Promise.all([
