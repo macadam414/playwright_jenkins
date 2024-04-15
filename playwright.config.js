@@ -3,7 +3,7 @@ const { devices } = require('@playwright/test');
 module.exports = {
   projects: [
     {
-      name: 'Headless Tests',
+      name: 'chromium',
       use: { ...devices['Desktop Chrome'], headless: true },
     },
   ],
